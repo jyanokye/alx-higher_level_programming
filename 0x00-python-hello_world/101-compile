@@ -2,4 +2,4 @@
 python3 -m py_compile $PYFILE
 mv __pycache__/*.pyc ./$PYFILE'c'
 chmod +x $PYFILE'c'
-rmdie __pycache__
+rmdir __pycache__
