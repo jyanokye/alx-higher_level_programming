@@ -8,4 +8,4 @@ if (num) {
 	console.log('');
 } else {
 	console.log('Missing size');
-}\n
+}
