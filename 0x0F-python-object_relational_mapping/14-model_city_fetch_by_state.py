@@ -6,14 +6,13 @@ from sqlalchemy.orm import Session
 from model_state import Base, State
 from model_city import City
 
+
 def list_city_obj():
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
-            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-            pool_pre_ping=True)
-    
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
+                           pool_pre_ping=True)
     Base.metadata.create_all(engine)
     
-
     session = Session(engine)
     
     rows = session.query(State, City).join(City).all()
