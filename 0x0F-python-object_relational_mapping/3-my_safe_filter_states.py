@@ -6,6 +6,7 @@ import sys
 def filter_names_safe():
     """Takes arguments argv to list from database
     Only lists with states that matches name argument
+    
     Arguments:
         argv[1]: mysql username
         argv[2]: mysql password
@@ -29,7 +30,6 @@ def filter_names_safe():
         
         cur.close()
         db.close()
-    
     else:
         return
 

@@ -6,12 +6,12 @@ import sys
 def list_cities():
     """Takes arguments argv to list from database
     Only lists with states that matches name argument
+    
     Arguments:
         argv[1]: mysql username
         argv[2]: mysql password
         argv[3]: database name
     """
-
     db = MySQLdb.connect(host="localhost",
                          port=3306,                                   
                          user=sys.argv[1],
@@ -22,7 +22,7 @@ def list_cities():
 
     cur.execute("SELECT cities.id, cities.name, states.name FROM cities\
                 JOIN states ON cities.state_id = states.id
-                ORDER BY cities.id ASC"
+                ORDER BY cities.id ASC")
     rows = cur.fetchall()
     for i in rows:
         print(i)
@@ -30,5 +30,5 @@ def list_cities():
     cur.close()
     db.close()
 
-    if __name__ == "__main__"
-        list_cities()
+if __name__ == "__main__"
+    list_cities()
