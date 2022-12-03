@@ -21,11 +21,14 @@ def list_cities():
     cur = db.cursor()
 
     cur.execute("SELECT cities.id, cities.name, states.name FROM cities\
-                JOIN states ON cities.state_id = states.id                                      ORDER BY cities.id ASC")
+                JOIN states ON cities.state_id = states.id
+                ORDER BY cities.id ASC"
     rows = cur.fetchall()
     for i in rows:
         print(i)
 
-    cur.close()                                                                     db.close()
-                                                                                    if __name__ == "__main__"
+    cur.close()
+    db.close()
+
+    if __name__ == "__main__"
         list_cities()
