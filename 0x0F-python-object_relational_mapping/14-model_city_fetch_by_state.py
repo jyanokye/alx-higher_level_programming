@@ -16,11 +16,12 @@ def list_city_obj():
     session = Session(engine)
     
     rows = session.query(State, City).join(City).all()
+    
     for i in rows:
         print("{}: ({}) {}".format(i[0].__dict__['name'],
                                    i[1].__dict__['id'],
                                    i[1].__dict__['name']))
-        session.close()
+    session.close()
 
 if __name__ == "__main__":
     list_city_obj()
