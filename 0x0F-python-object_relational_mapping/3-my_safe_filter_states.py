@@ -21,29 +21,15 @@ def filter_names_safe():
 
         cur = db.cursor()
 
+        cur.execute("SELECT * FROM states WHERE BINARY name='{:s}'\
+                    ORDER BY id ASC".format(sys.argv[4]))                               rows = cur.fetchall()  
+        for i in rows: 
+            print(i)
+        
+        cur.close()
+        db.close()
+                                                                                    else:
+        return
 
-                                                                                    cur.execute("SELECT * FROM states WHERE BINARY name='{:s}'\
-
-                                                                                                                ORDER BY id ASC".format(sys.argv[4]))
-
-                                                                                            rows = cur.fetchall()
-
-                                                                                                    for i in rows:
-
-                                                                                                                    print(i)
-
-
-
-                                                                                                                            cur.close()
-
-                                                                                                                                    db.close()
-
-                                                                                                                                        else:
-
-                                                                                                                                                    return
-
-
-
-                                                                                                                                                if __name__ == "__main__":
-
-                                                                                                                                                        filter_names_safe()
+if __name__ == "__main__":
+    filter_names_safe()
