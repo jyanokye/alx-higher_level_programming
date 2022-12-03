@@ -3,6 +3,7 @@
 import MySQLdb
 import sys
 
+
 def list_cities():
     """Takes arguments argv to list from database
     Only lists with states that matches name argument
@@ -21,7 +22,7 @@ def list_cities():
     cur = db.cursor()
 
     cur.execute("SELECT cities.id, cities.name, states.name FROM cities\
-                JOIN states ON cities.state_id = states.id
+                JOIN states ON cities.state_id = states.id\
                 ORDER BY cities.id ASC")
     rows = cur.fetchall()
     for i in rows:
