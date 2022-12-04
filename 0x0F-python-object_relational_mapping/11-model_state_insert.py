@@ -1,20 +1,24 @@
 #!/usr/bin/python3
-
+"""Inserts into State obj from db"""
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_state import State
+from sqlalchemy.orm import Session
+from model_state import Base, State
 
-
-if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+def insert_to_state_obj():
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
+    Base.metadata.create_all(engine)
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    session = Session(engine)
+    state = State(name='Louisiana')
 
-    insert_state = State(name='Louisiana')
-    session.add(insert_state)
+    session.add(state)
     session.commit()
-    print(insert_state.id)
+    print(state.id)
+    
+    session.close()
+
+if __name__ == "__main__":
+    insert_to_state_obj()
