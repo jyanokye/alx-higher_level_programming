@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-"""Display name argument of states table"""
+"""Displays all cities of arguments state"""
 import MySQLdb
 import sys
 
 
-def filter_names_safe():
+def list_cities():
     """Takes arguments argv to list from database
     Only lists with states that matches name argument
-    
+                
     Arguments:
         argv[1]: mysql username
         argv[2]: mysql password
         argv[3]: database name
-        argv[4]: state name
     """
     if len(sys.argv) == 5:
         db = MySQLdb.connect(host="localhost",
@@ -22,17 +21,22 @@ def filter_names_safe():
                              db=sys.argv[3])
 
         cur = db.cursor()
-
-        cur.execute("SELECT * FROM states WHERE BINARY name='{:s}'\
-                    ORDER BY id ASC".format(sys.argv[4]))
-        rows = cur.fetchall()
-        for i in rows: 
-            print(i)
         
+        cur.execute("SELECT cities.name FROM cities\
+                    JOIN states ON cities.state_id = states.id\
+                    AND states.name = '{:s}'\
+                    ORDER BY cities.id ASC".format(sys.argv[4]))
+                                                                
+        rows = cur.fetchall()
+
+        res = []
+        for i in rows:
+            res.append(i[0])
+
+        print(", ".join(res))
+
         cur.close()
         db.close()
-    else:
-        return
 
 if __name__ == "__main__":
-    filter_names_safe()
+    list_cities()
