@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""This is the main file thats savs the cities"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

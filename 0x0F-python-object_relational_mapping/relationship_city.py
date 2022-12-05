@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Creates a state called California with the city San Francisco"""
 from sqlachemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
