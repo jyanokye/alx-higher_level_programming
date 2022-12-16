@@ -11,16 +11,16 @@ def searchapi():
     else:
         q = sys.argv[1]
         
-        result = requests.post("http://0.0.0.0:5000/search_user", data={"q": q}
+    result = requests.post("http://0.0.0.0:5000/search_user", data={"q": q}
 
-                try:
-                data = result.json()
-                if data:
-                print("[{}] {}".format(data["id"], data["name"]))
-                else:
-                print("No result")
-                except:
-                print("Not a valid JSON")
+    try:
+        data = result.json()
+        if data:
+            print("[{}] {}".format(data["id"], data["name"]))
+        else:
+            print("No result")
+    except:
+            print("Not a valid JSON")
 
-                if __name__ == "__main__":
-                searchapi()
+if __name__ == "__main__":
+    searchapi()
