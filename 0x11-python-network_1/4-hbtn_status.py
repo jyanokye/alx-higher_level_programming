@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""Check the status"""
+"""initializate something"""
 import requests
 
 
 def status():
-    """status"""
-    result = requests.get("https://intranet.hbtn.io/status")
+    """a Python script that fetches https://intranet.hbtn.io/status"""
 
-    print("Body response:")
-    print("\t- type: {}".format(type(result.text)))
-    print("\t- content: {}".format(result.text))
+    data_req = requests.get('https://intranet.hbtn.io/status')
+    print("Body response:\n\t- type: {}\n\t- content: {}".
+          format(type(data_req.text), data_req.text))
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     status()
