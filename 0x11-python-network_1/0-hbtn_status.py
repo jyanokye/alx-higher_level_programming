@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status"""
-import urllib.request
+"""status initializate"""
+from urllib.request import urlopen
 
 
-def fetcher():
-    """fetcher"""
-    with urllib.request.urlopen("https://intranet.hbtn.io/status") as response:
+def hbtn_status_0():
+    """function show my status"""
+    with urlopen('https://intranet.hbtn.io/status') as response:
         html = response.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(html)))
-        print("\t- content: {}".format(html))
-        print("\t- utf8 content: {}".format(html.decode("utf-8")))
+        utf8 = html.decode('utf-8')
+        print("Body response:\n\t- type: {}".format(type(html)))
+        print("\t- content: {}\n\t- utf8 content: {}".
+              format(html, utf8, end=""))
 
-if __name__ == "__main__":
-    fetcher()
+if __name__ == '__main__':
+    hbtn_status_0()
