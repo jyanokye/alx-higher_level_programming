@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""initializate something"""
+"""initializate something
+"""
+
 import requests
 
 
 def status():
     """a Python script that fetches https://intranet.hbtn.io/status"""
-
     response = requests.get('https://alx-intranet.hbtn.io/status')
     return response
 
