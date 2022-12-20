@@ -10,5 +10,6 @@ def post():
 
     print(result.text)
 
+
 if __name__ == "__main__":
     post()
