@@ -5,7 +5,7 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """A subclass of rectangle"""
+      """A subclass of rectangle"""
     def __init__(self, size):
         """ initializes the object
 
