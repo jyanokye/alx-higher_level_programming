@@ -1,0 +1,69 @@
+The ``7-base_geometry`` module
+=============================
+
+using ``BaseGeometry``
+----------------------
+
+This is a ``7-base_geometry`` text file. First import
+``BaseGeometry`` from the ``7-base_geometry`` module:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Now use it:
+    >>> b_g = BaseGeometry()
+    >>> b_g.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+    >>> b_g.integer_validator() # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:
+
+    >>> b_g.integer_validator("age") # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:
+
+    >>> b_g.integer_validator("age", 3)
+    
+    >>> b_g.integer_validator("age", 0) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    ValueError:
+
+    >>> b_g.integer_validator("age", -2) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    ValueError:
+
+    >>> b_g.integer_validator("age", "age") # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:
+
+    >>> b_g.integer_validator("age", (2,3,4)) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:
+
+    >>> b_g.integer_validator("age", {1, 3}) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:
+
+    >>> b_g.integer_validator("age", [2,3]) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:
+
+    >>> b_g.integer_validator("age", None) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:
+
+    >>> b_g.integer_validator("age", True) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+         ...
+    TypeError: age must be an integer 
