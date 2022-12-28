@@ -1,0 +1,63 @@
+The ``1-my_list`` module
+======================
+
+Using ``MyList``
+-------------------
+
+This is a ``1-my_list`` text file. First import
+``MyList`` from the ``1-my_list`` module:
+
+        >>> MyList = __import__('1-my_list').MyList
+
+Now use it:
+
+Test: MyList inherits from list:
+	 >>> issubclass(MyList, list)
+	 True
+
+Test: empty list:
+	 >>> l = MyList()
+	 >>> l.print_sorted()
+	 []
+
+Test: append:
+	 >>> l.append(5)
+	 >>> l.append(2)
+	 >>> l.append(1)
+	 >>> print(l)
+	 [5, 2, 1]
+
+Test: list already sorted:
+	 >>> l.print_sorted()
+	 [1, 2, 5]
+
+Test: reversed list:
+	 >>> l = MyList()
+	 >>> l.append(8)
+	 >>> l.append(6)
+	 >>> l.append(4)
+	 >>> print(l)
+	 [8, 6, 4]
+	 >>> l.print_sorted()
+	 [4, 6, 8]
+
+Test: one negative number:
+	 >>> l.append(-6)
+	 >>> l.append(2)
+	 >>> print(l)
+	 [8, 6, 4, -6, 2]
+	 >>> l.print_sorted()
+	 [-6, 2, 4, 6, 8]
+	 >>> print(l)
+	 [8, 6, 4, -6, 2]
+
+Test: all negative numbers:
+	 >>> l = MyList()
+	 >>> l.append(-9)
+	 >>> l.append(-5)
+	 >>> l.append(-8)
+	 >>> l.append(-4)
+	 >>> print(l)
+	 [-9, -5, -8, -4]
+	 >>> l.print_sorted()
+	 [-9, -8, -5, -4]
