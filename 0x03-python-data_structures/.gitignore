@@ -1,0 +1,4 @@
+# Ignoring emacs autosave~ and #modified# files
+*~
+**/*~
+**/\#*
